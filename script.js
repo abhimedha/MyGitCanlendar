@@ -1,9 +1,9 @@
 
-window.onload=function startCalendar() {
+window.onload = function startCalendar() {
     var d = new Date();
     var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var month = d.getMonth();
-    month=month+countee;
+    month = month + countee;
     var year = d.getFullYear();
     var first_date = month_name[month] + " " + 1 + " " + year;
     var tmp = new Date(first_date).toDateString();
@@ -17,27 +17,30 @@ window.onload=function startCalendar() {
     document.getElementById("calendar-dates").appendChild(calendar);
 }
 function startCalendar(countee) {
-	
+
     var d = new Date();
     var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var month = d.getMonth();
-    month=month+countee;
-    var add=parseInt(month/12);
+    month = month + countee;
+    var add = parseInt(month / 12);
     var year = d.getFullYear();
-    if(month>=11)
-    {
-    	month=month%12;
+    if (month >11) {
+        month = month % 12;
+
+    }
+    if (month<0) {
+        add--;
+        if(month==-1){
+          month = 12 + (month % 12);   
+        }
+        else{month = 11 + (month % 12);
+        }
         
     }
-    if(month<=0)
-    {
-    	add--;
-    	month=11+month%12;
-    }
-    year=year+add;
+    year = year + add;
     var first_date = month_name[month] + " " + 1 + " " + year;
-	
-	
+
+
     var tmp = new Date(first_date).toDateString();
     var first_day = tmp.substring(0, 3);
     var day_name = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -48,14 +51,14 @@ function startCalendar(countee) {
     $('#calendar-dates').empty();
     document.getElementById("calendar-dates").appendChild(calendar);
 }
-var countee=0;
+var countee = 0;
 function buttonClickF() {
-    countee=countee+1;
+    countee = countee + 1;
     startCalendar(countee);
-    
+
 }
-function buttonClickB(){
-	countee=countee-1;
+function buttonClickB() {
+    countee = countee - 1;
     startCalendar(countee);
 }
 
@@ -73,9 +76,9 @@ function get_calendar(day_no, days) {
     }
     table.appendChild(tr);
 
-    
+
     tr = document.createElement('tr');
-    var c 
+    var c
     for (c = 0; c <= 6; c++) {
         if (c == day_no) {
             break;
@@ -91,13 +94,13 @@ function get_calendar(day_no, days) {
         td.innerHTML = count;
         count++;
         tr.appendChild(td);
-     }
+    }
     table.appendChild(tr);
 
 
     for (var r = 3; r <= 7; r++) {
         tr = document.createElement('tr');
-    for (var c = 0; c <= 6; c++) {
+        for (var c = 0; c <= 6; c++) {
             if (count > days) {
                 table.appendChild(tr);
                 return table;
