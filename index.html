@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Calendar</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <script  src="jquery-3.2.1.slim.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-      <script>
-     $(document).ready(function(){
-    $("#hide").click(function(){
-        $("hide").hide();
-    });
-    </script>
-    
+ <link type="text/css" rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript" src="script.js"></script>
 </head>
-
 <body>
-     <button type="button" id="hide"  onclick="buttonClick()">Calendar</button>
     <div id="calendar-container">
         <div id="calendar-header">
-
+			<button type="button" onclick="buttonClickB()"><</button>
             <span id="calendar-month-year">
                     </span>
-           <button type="button" onclick="buttonClick()">></button>
+           <button type="button" onclick="buttonClickF()">></button>
         </div>
         <div id="calendar-dates">
         </div>
     </div>
-
-  
-    
 </body>
-
 </html>
+
